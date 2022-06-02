@@ -63,7 +63,7 @@
     <div class="row">
       <div class="col-1"></div>
         <div class="col-10 mt-3">
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%; height: 400px; overflow: hidden"
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%; height: 350px; overflow: hidden"
           >
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -174,19 +174,36 @@
     </div>
 
 
-    <div class="row">
-      <div class="col-3">
-
-      </div>
+    <div class="row" style="background: black">
       <div class="col-6">
-        <h1>Công Ty TMHH PHNT</h1>
-        <h2>h2. Bootstrap heading</h2>
-        <h3>h3. Bootstrap heading</h3>
+        <nav class="nav flex-column">
+          <a class="nav-link active" href="#">Công ty TNHH NPHT</a>
         <h4>h4. Bootstrap heading</h4>
         <h5>h5. Bootstrap heading</h5>
         <h6>h6. Bootstrap heading</h6>
+        </nav>
       </div>
-      <div class="col-3"></div>
+      <div class="col-6">
+        <div class="row">
+        <div class="col-6">
+        <nav class="nav flex-column">
+          <a class="nav-link active" href="#">VỀ CHÚNG TÔI</a>
+          <a class="nav-link" href="#">Tin Tức</a>
+          <a class="nav-link" href="#">Giỏ Hàng</a>
+          <a class="nav-link" href="#">Dịch Vụ</a>
+          <a class="nav-link" href="#">Liên Hệ</a>
+        </nav>
+        </div>
+        <div class="col-6">
+          <nav class="nav flex-column">
+            <a class="nav-link active" href="#">SẢN PHẨM</a>
+            <a class="nav-link" href="#">Rau</a>
+            <a class="nav-link" href="#">Hoa Quả</a>
+            <a class="nav-link" href="#">Thực Phẩm Khác</a>
+          </nav>
+        </div>
+      </div>
+      </div>
     </div>
 
 
