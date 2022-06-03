@@ -5,6 +5,7 @@
   Time: 1:39 CH
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -16,7 +17,7 @@
   <div class="container-fluid" style="background: bisque">
     <div class="row">
       <div class="col-3 mt-3">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeQ-WosSNblZCtZT1pW2ML5pg35hi1E2J0og30cScDfaEWahpzc3_roKh75AdXqrGy-5o&usqp=CAU" alt="">
+        <img src="../image/abc.jpg" alt="">
       </div>
       <div class="col-9 mt-3">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,16 +31,23 @@
                 <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">login</a>
+                <a class="nav-link" href="#">Đăng nhập</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">logout</a>
+                <a class="nav-link" href="#">Đăng ký</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Giỏ Hàng</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Thêm sản phẩm</a>
+                <a class="nav-link" href="#">Thêm Sản Phẩm</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sửa Sản Phẩm</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Xóa Sản Phẩm</a>
               </li>
             </ul>
             <form class="d-flex">
@@ -58,8 +66,6 @@
         </center>
       </div>
     </div>
-
-
     <div class="row">
       <div class="col-1"></div>
         <div class="col-10 mt-3">
@@ -73,7 +79,10 @@
                 <img src="https://anhnendep.net/wp-content/uploads/2015/07/hinh-nen-trai-cay-dep-3.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS43VIh9npU5bPQSgFQcilG6CPkJMqJWVfUtYsr943hFBKpOj5-t9rmdSRx2A9LSSYQ3VM&usqp=CAU" class="d-block w-100" alt="...">
+                <img src="../image/Cam1.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../image/Nho1.jpg" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
@@ -87,95 +96,60 @@
           </div>
           </div>
 
-
       <div class="col-1"></div>
     </div>
-
 
     <div class="row">
       <div class="col-12 mt-3">
         <center>
-        <p class="h2">DANH SÁCH SẢN PHẨM</p>
+        <p class="h2">DANH SÁCH CHI TIẾT SẢN PHẨM</p>
       </center>
       </div>
     </div>
-
-
     <div class="row">
       <div class="col-1"></div>
       <div class="col-8">
         <div class="row">
-          <div class="col-4 mt-3">
-            <div class="card" style="width: 14rem;">
-              <img src="https://bloganh.net/wp-content/uploads/2021/03/chup-anh-dep-anh-sang-min.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+<%--          <h2>${pro.name}, ${pro.img}, ${pro.numberOfProduct}, ${pro.price}, ${pro.categoryzz.name}</h2>--%>
+          <c:forEach items='${products}' var="pro">
+            <div class="col-4 mt-3">
+              <div class="card" style="width: 14rem;">
+                <img src="${pro.img}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text" >${pro.name}</p>
+<%--                  <h5 class="card-title"></h5>--%>
+                  <p class="card-text" >Giá: ${pro.price} VNĐ </p>
+                  <p class="card-text" >Danh mục: ${pro.categoryzz.name}</p>
+<%--                  <a href="#" class="btn btn-primary"> Số lượng: ${pro.numberOfProduct}</a>--%>
+<%--                  <p class="card-text"> acbd</p>--%>
+                  <a href="#" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-4 mt-3">
-            <div class="card" style="width: 14rem;">
-              <img src="https://organicfood.weba.vn/shop/images/organicfood/product/rau/toi_large.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">chi tiết sản  phẩm</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 mt-3">
-            <div class="card" style="width: 14rem;">
-              <img src="https://organicfood.weba.vn/shop/images/organicfood/product/rau/toi_large.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">chi tiết sản  phẩm</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 mt-3">
-            <div class="card" style="width: 14rem;">
-              <img src="https://organicfood.weba.vn/shop/images/organicfood/product/rau/toi_large.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">chi tiết sản  phẩm</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 mt-3">
-            <div class="card" style="width: 14rem;">
-              <img src="https://organicfood.weba.vn/shop/images/organicfood/product/rau/xa-lach-mo-dl_large.jpg
-" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">chi tiết sản  phẩm</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
+          </c:forEach>
+
         </div>
       </div>
       <div class="col-3">
         <div class="dropdown">
           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-            DANH SÁCH SẢN PHẨM
+            DANH MỤC SẢN PHẨM
           </a>
-
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+
+            <c:forEach items='${categories}' var="ca">
+              <h5><a class="dropdown-item" href="#">${ca.name}</a></h5>
+            </c:forEach>
+
           </div>
         </div>
       </div>
     </div>
 
 
-    <div class="row" style="background: black">
-      <div class="col-6">
+    <div class="row mt-3" style="background: yellow">
+      <div class="col-6 mt-2">
         <nav class="nav flex-column">
           <a class="nav-link active" href="#">Công ty TNHH NPHT</a>
         <h4>h4. Bootstrap heading</h4>
