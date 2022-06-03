@@ -5,17 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c3f9f56-e5b4-4333-88cc-9a4e954192c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/css.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/dangk.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/dangky.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/dangnhap.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/dangky.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/dnhap.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/dangnhap/dangnhap.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/dangnhap.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/dangnhap/img.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dangnhap/dangky.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +30,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -57,11 +56,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -70,7 +71,6 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.63" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.63" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : org.example : Case2MD3-1.0-SNAPSHOT.war">
@@ -171,7 +171,8 @@
       <workItem from="1654159077313" duration="9769000" />
       <workItem from="1654182117167" duration="88000" />
       <workItem from="1654182242985" duration="3741000" />
-      <workItem from="1654218385690" duration="10474000" />
+      <workItem from="1654218385690" duration="10871000" />
+      <workItem from="1654229857025" duration="7347000" />
     </task>
     <servers />
   </component>
