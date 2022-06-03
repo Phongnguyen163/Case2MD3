@@ -17,7 +17,7 @@
   <div class="container-fluid" style="background: bisque">
     <div class="row">
       <div class="col-3 mt-3">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeQ-WosSNblZCtZT1pW2ML5pg35hi1E2J0og30cScDfaEWahpzc3_roKh75AdXqrGy-5o&usqp=CAU" alt="">
+        <img src="../image/abc.jpg" alt="">
       </div>
       <div class="col-9 mt-3">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
