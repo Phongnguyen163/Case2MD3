@@ -96,7 +96,7 @@
     <div class="row">
         <div class="col-12 mt-3">
             <center>
-                <p class="h2">SỬA SẢN PHẨM</p>
+                <p class="h2">THÊM SẢN PHẨM</p>
             </center>
         </div>
     </div>
@@ -108,50 +108,50 @@
             <div class="row">
 
                 <div class="col-12 mt-3">
-                        <form method="post">
-                            <div class="row" style="width: 100%">
-                                <div class="col-12" style="width: 100%">
-                                    <input type="number" class="form-control" placeholder="ID" name="id">
-                                </div>
+                    <form method="post">
+                        <div class="row" style="width: 100%">
+                            <div class="col-12" style="width: 100%">
+                                <input type="number" class="form-control" placeholder="ID" name="id">
                             </div>
-                            <br>
-                            <div class="row" style="width: 100%">
-                                <div class="col-12" style="width: 100%">
-                                    <input type="text" class="form-control" placeholder="NAME" name="name">
-                                </div>
+                        </div>
+                        <br>
+                        <div class="row" style="width: 100%">
+                            <div class="col-12" style="width: 100%">
+                                <input type="text" class="form-control" placeholder="NAME" name="name">
                             </div>
-                            <br>
-                            <div class="row" style="width: 100%">
-                                <div class="col-12" style="width: 100%">
+                        </div>
+                        <br>
+                        <div class="row" style="width: 100%">
+                            <div class="col-12" style="width: 100%">
                                 <input type="number" class="form-control" placeholder="CATAGORYID" name="catagoryId">
-                                </div>
                             </div>
-                            <br>
-                            <div class="row" style="width: 100%">
-                                <div class="col-12" style="width: 100%">
-                                    <input type="text" class="form-control" placeholder="ING" name="img">
-                                </div>
+                        </div>
+                        <br>
+                        <div class="row" style="width: 100%">
+                            <div class="col-12" style="width: 100%">
+                                <input type="text" class="form-control" placeholder="ING" name="img">
                             </div>
-                            <br>
-                            <div class="row" style="width: 100%">
-                                <div class="col-12" style="width: 100%">
-                                    <input type="number" class="form-control" placeholder="NUMBEROFPRODUCT" name="numberOfProduct">
-                                </div>
+                        </div>
+                        <br>
+                        <div class="row" style="width: 100%">
+                            <div class="col-12" style="width: 100%">
+                                <input type="number" class="form-control" placeholder="NUMBEROFPRODUCT" name="numberOfProduct">
                             </div>
-                            <br>
-                            <div class="row" style="width: 100%">
-                                <div class="col-12" style="width: 100%">
-                                    <input type="number" class="form-control" placeholder="PRICE" name="price">
-                                </div>
+                        </div>
+                        <br>
+                        <div class="row" style="width: 100%">
+                            <div class="col-12" style="width: 100%">
+                                <input type="number" class="form-control" placeholder="PRICE" name="price">
                             </div>
-                            <br>
-                            <select name="customerId">
-                                <c:forEach items="${customerse}" var="cd" >
-                                    <option value="${cd.id}">${cd.name}</option>
-                                </c:forEach>
-                            </select>
-                            <button type="button" class="btn btn-primary">EDIT</button>
-                        </form>
+                        </div>
+                        <br>
+                        <select name="customerId">
+                            <c:forEach items="${customerse}" var="cd" >
+                                <option value="${cd.id}">${cd.name}</option>
+                            </c:forEach>
+                        </select>
+                        <button type="button" class="btn btn-primary">ADD</button>
+                    </form>
                 </div>
 
             </div>
