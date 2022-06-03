@@ -39,7 +39,7 @@
                 <a class="nav-link" href="#">Giỏ Hàng</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Link</a>
+                <a class="nav-link" href="#">Thêm sản phẩm</a>
               </li>
             </ul>
             <form class="d-flex">
