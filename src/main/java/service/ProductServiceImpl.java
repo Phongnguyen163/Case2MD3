@@ -128,4 +128,31 @@ public class ProductServiceImpl implements ProductService{
     public List<Product> findAllOderByAge() {
         return null;
     }
+
+    @Override
+    public List<Product> findAllByClass(int categoryid) {
+        List<Product> products = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from product where categoryid = ?");) {
+            preparedStatement.setInt(1,categoryid);
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String img = rs.getString("img");
+                int numberOfProduct = rs.getInt("numberOfProduct");
+                int price = rs.getInt("price");
+                int categoryzid = rs.getInt("categoryid");
+                Category categoryzz = categoryService.findById(categoryzid);
+                products.add(new Product(id,name,img,numberOfProduct,price,categoryzz));
+
+            }
+        } catch (SQLException e) {
+        }
+
+        return products;
+    }
 }

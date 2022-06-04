@@ -140,7 +140,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
             <c:forEach items='${categories}' var="ca">
-              <h5><a class="dropdown-item" href="#">${ca.name}</a></h5>
+              <h5><a class="dropdown-item" href="/home?categoryid=${ca.id}">${ca.name}</a></h5>
             </c:forEach>
 
           </div>
@@ -150,34 +150,32 @@
 
 
     <div class="row mt-3" style="background: lightgray">
-      <div class="col-6 mt-2">
+      <div class="col-6">
         <nav class="nav flex-column">
-          <a class="nav-link active" href="#">Công ty TNHH NPHT</a>
-        <h4>h4. Bootstrap heading</h4>
-        <h5>h5. Bootstrap heading</h5>
-        <h6>h6. Bootstrap heading</h6>
+          <a class="nav-link active" href="#">Công ty TNHH 4 Thành Viên
+          </a>
         </nav>
       </div>
       <div class="col-6">
         <div class="row">
-        <div class="col-6">
-        <nav class="nav flex-column">
-          <a class="nav-link active" href="#">VỀ CHÚNG TÔI</a>
-          <a class="nav-link" href="#">Tin Tức</a>
-          <a class="nav-link" href="#">Giỏ Hàng</a>
-          <a class="nav-link" href="#">Dịch Vụ</a>
-          <a class="nav-link" href="#">Liên Hệ</a>
-        </nav>
+          <div class="col-6">
+            <nav class="nav flex-column">
+              <a class="nav-link active" href="#">VỀ CHÚNG TÔI</a>
+              <a class="nav-link" href="#">Tin Tức</a>
+              <a class="nav-link" href="#">Giỏ Hàng</a>
+              <a class="nav-link" href="#">Dịch Vụ</a>
+              <a class="nav-link" href="#">Liên Hệ</a>
+            </nav>
+          </div>
+          <div class="col-6">
+            <nav class="nav flex-column">
+              <a class="nav-link active" href="#">SẢN PHẨM</a>
+              <a class="nav-link" href="#">Rau</a>
+              <a class="nav-link" href="#">Hoa Quả</a>
+              <a class="nav-link" href="#">Thực Phẩm Khác</a>
+            </nav>
+          </div>
         </div>
-        <div class="col-6">
-          <nav class="nav flex-column">
-            <a class="nav-link active" href="#">SẢN PHẨM</a>
-            <a class="nav-link" href="#">Rau</a>
-            <a class="nav-link" href="#">Hoa Quả</a>
-            <a class="nav-link" href="#">Thực Phẩm Khác</a>
-          </nav>
-        </div>
-      </div>
       </div>
     </div>
 
