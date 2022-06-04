@@ -17,7 +17,7 @@
 <div class="container-fluid" style="background: bisque">
     <div class="row">
         <div class="col-3 mt-3">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeQ-WosSNblZCtZT1pW2ML5pg35hi1E2J0og30cScDfaEWahpzc3_roKh75AdXqrGy-5o&usqp=CAU" alt="">
+            <img src="../image/abc.jpg" alt="">
         </div>
         <div class="col-9 mt-3">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,16 +31,22 @@
                             <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">login</a>
+                            <a class="nav-link" href="#">Đăng nhập</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">logout</a>
+                            <a class="nav-link" href="#">Đăng ký</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Thêm sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sửa Sản Phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Xóa Sản Phẩm</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -59,8 +65,6 @@
             </center>
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10 mt-3">
@@ -74,7 +78,10 @@
                         <img src="https://anhnendep.net/wp-content/uploads/2015/07/hinh-nen-trai-cay-dep-3.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS43VIh9npU5bPQSgFQcilG6CPkJMqJWVfUtYsr943hFBKpOj5-t9rmdSRx2A9LSSYQ3VM&usqp=CAU" class="d-block w-100" alt="...">
+                        <img src="../image/Cam1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../image/Nho1.jpg" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
