@@ -21,7 +21,7 @@
         </div>
         <div class="col-9 mt-3">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">TRANG CHỦ</a>
+                <a class="navbar-brand" href="/home">TRANG CHỦ</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -135,28 +135,29 @@
                     <form method="post">
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
-                                <input type="text" class="form-control" placeholder="Name" name="name">
+                                <input type="text" class="form-control" placeholder="Tên Sản Phẩm" name="name">
                             </div>
                         </div>
                         <br>
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
-                                <input type="text" class="form-control" placeholder="Img" name="img">
+                                <input type="text" class="form-control" placeholder="Ảnh" name="img">
                             </div>
                         </div>
                         <br>
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
-                                <input type="number" class="form-control" placeholder="NumberOfProduct" name="numberOfProduct">
+                                <input type="number" class="form-control" placeholder="Số lượng" name="numberOfProduct">
                             </div>
                         </div>
                         <br>
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
-                                <input type="number" class="form-control" placeholder="Price" name="price">
+                                <input type="number" class="form-control" placeholder="Giá" name="price">
                             </div>
                         </div>
                         <br>
+                        <h5>Danh Mục: </h5>
                         <select name="categoryid">
                             <c:forEach items='${categories}' var="ca">--%>
                                 <option value="${ca.id}">${ca.name}</option>
