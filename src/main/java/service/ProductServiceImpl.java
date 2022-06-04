@@ -95,7 +95,13 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public boolean delete(int id) throws SQLException {
-        return false;
+        boolean rowDeleted;
+        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement("delete from product where id=?");) {
+            statement.setInt(1, id);
+            System.out.println(statement);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
     }
 
     @Override

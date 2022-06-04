@@ -31,9 +31,23 @@ public class ProductServlet extends HttpServlet {
             case "view":
                 showView(request, response);
                 break;
+            case "delete":
+                showDelete(request, response);
+                break;
             default:
                 showList(request, response);
         }
+    }
+
+    private void showDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Category> categories = categoryService.findAll();
+        request.setAttribute("categories", categories);
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = productService.findById(id);
+        request.setAttribute("delete", product);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/delete.jsp");
+        requestDispatcher.forward(request, response);
+
     }
 
     private void showView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -74,9 +88,22 @@ public class ProductServlet extends HttpServlet {
                     throw new RuntimeException(e);
                 }
                 break;
+            case "delete":
+                try {
+                    deleteForm(request, response);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
             default:
                 showList(request, response);
         }
+    }
+
+    private void deleteForm(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        productService.delete(id);
+        response.sendRedirect("/home");
     }
 
     private void CreateForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
