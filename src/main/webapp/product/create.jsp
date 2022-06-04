@@ -17,7 +17,14 @@
 <div class="container-fluid" style="background: bisque">
     <div class="row">
         <div class="col-3 mt-3">
+
+
+            <%--        (Cop Cái Này)--%>
             <img src="../image/abc.jpg" alt="">
+
+
+
+
         </div>
         <div class="col-9 mt-3">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,6 +33,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarScroll">
+
+
                     <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
@@ -43,12 +52,14 @@
                             <a class="nav-link" href="#">Thêm Sản Phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sửa Sản Phẩm</a>
+                            <a class="nav-link" href="/products?act=create">Sửa Sản Phẩm</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Xóa Sản Phẩm</a>
                         </li>
                     </ul>
+
+
                     <form class="d-flex">
                         <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -169,6 +180,9 @@
 
             </div>
         </div>
+
+
+
         <div class="col-3">
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
@@ -183,6 +197,9 @@
                 </div>
             </div>
         </div>
+
+
+
     </div>
 
 
