@@ -72,7 +72,25 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Product findById(int id) {
-        return null;
+        Product product = new Product();
+        try (Connection connection = getConnection();
+
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from product where id = ?");) {
+            preparedStatement.setInt(1,id);
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String img = rs.getString("img");
+                int numberOfProduct = rs.getInt("numberOfProduct");
+                int price = rs.getInt("price");
+                int categoryid = rs.getInt("categoryid");
+                Category categoryz = categoryService.findById(categoryid);
+                product = new Product(id,name,img,numberOfProduct,price,categoryz);
+            }
+        } catch (SQLException e) {
+        }
+        return product;
     }
 
     @Override

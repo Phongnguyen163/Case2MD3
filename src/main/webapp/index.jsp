@@ -101,7 +101,7 @@
     <div class="row">
       <div class="col-12 mt-3">
         <center>
-        <p class="h2">DANH SÁCH CHI TIẾT SẢN PHẨM</p>
+        <p class="h2">SẢN PHẨM ĐANG BÁN</p>
       </center>
       </div>
     </div>
@@ -122,7 +122,7 @@
                   <p class="card-text" >Danh mục: ${pro.categoryzz.name}</p>
 <%--                  <a href="#" class="btn btn-primary"> Số lượng: ${pro.numberOfProduct}</a>--%>
 <%--                  <p class="card-text"> acbd</p>--%>
-                  <a href="#" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
+                  <a href="/products?act=view&id=${pro.id}" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
                 </div>
               </div>
             </div>
