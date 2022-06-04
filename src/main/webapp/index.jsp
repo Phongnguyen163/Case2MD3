@@ -25,7 +25,7 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
+          <div class="collapse navbar-collapse text-center" id="navbarScroll">
             <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
               <li class="nav-item active">
                 <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
@@ -42,12 +42,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="/products?act=create">Thêm Sản Phẩm</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sửa Sản Phẩm</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Xóa Sản Phẩm</a>
-              </li>
+<%--              <li class="nav-item">--%>
+<%--                <a class="nav-link" href="#">Sửa Sản Phẩm</a>--%>
+<%--              </li>--%>
+<%--              <li class="nav-item">--%>
+<%--                <a class="nav-link" href="/products?act=delete">Xóa Sản Phẩm</a>--%>
+<%--              </li>--%>
             </ul>
             <form class="d-flex">
               <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
@@ -123,6 +123,8 @@
 <%--                  <a href="#" class="btn btn-primary"> Số lượng: ${pro.numberOfProduct}</a>--%>
 <%--                  <p class="card-text"> acbd</p>--%>
                   <a href="/products?act=view&id=${pro.id}" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
+                  <a href="/products?act=edit&id=${pro.id}" class="btn btn-primary mt-2">Sửa Sản Phẩm</a>
+                  <a href="/products?act=delete&id=${pro.id}" class="btn btn-primary mt-2">Xóa Sản Phẩm</a>
                 </div>
               </div>
             </div>

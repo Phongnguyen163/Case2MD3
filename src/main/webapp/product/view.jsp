@@ -49,7 +49,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarScroll">
+                <div class="collapse navbar-collapse text-center" id="navbarScroll">
 
 
                     <%--        (Cop Cái Này)--%>
@@ -69,12 +69,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/products?act=create">Thêm Sản Phẩm</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sửa Sản Phẩm</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Xóa Sản Phẩm</a>
-                        </li>
+<%--                        <li class="nav-item">--%>
+<%--                            <a class="nav-link" href="#">Sửa Sản Phẩm</a>--%>
+<%--                        </li>--%>
+<%--                        <li class="nav-item">--%>
+<%--                            <a class="nav-link" href="#">Xóa Sản Phẩm</a>--%>
+<%--                        </li>--%>
                     </ul>
 
 
