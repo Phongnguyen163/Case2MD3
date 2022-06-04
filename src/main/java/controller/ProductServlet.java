@@ -34,9 +34,22 @@ public class ProductServlet extends HttpServlet {
             case "delete":
                 showDelete(request, response);
                 break;
+            case "edit":
+                showEdit(request, response);
+                break;
             default:
                 showList(request, response);
         }
+    }
+
+    private void showEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Category> categories = categoryService.findAll();
+        request.setAttribute("categories", categories);
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = productService.findById(id);
+        request.setAttribute("product", product);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/edit.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     private void showDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -95,9 +108,28 @@ public class ProductServlet extends HttpServlet {
                     throw new RuntimeException(e);
                 }
                 break;
+            case "edit":
+                try {
+                    editForm(request, response);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
             default:
                 showList(request, response);
         }
+    }
+
+    private void editForm(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String img = request.getParameter("img");
+        int numberOfProduct = Integer.parseInt(request.getParameter("numberOfProduct"));
+        int price = Integer.parseInt(request.getParameter("price"));
+        int categoryid = Integer.parseInt(request.getParameter("categoryid"));
+        Category categoryz = categoryService.findById(categoryid);
+        productService.update(new Product(id,name,img,numberOfProduct,price,categoryz));
+        response.sendRedirect("/home");
     }
 
     private void deleteForm(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {

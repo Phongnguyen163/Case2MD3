@@ -106,7 +106,17 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public boolean update(Product product) throws SQLException {
-        return false;
+        boolean upDate;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = getConnection().prepareStatement("update product set name = ?, img = ?, numberOfProduct = ?, price = ?  where id = ?");) {
+            preparedStatement.setString(1, product.getName());
+            preparedStatement.setString(2, product.getImg());
+            preparedStatement.setInt(3, product.getNumberOfProduct());
+            preparedStatement.setInt(4, product.getPrice());
+            preparedStatement.setInt(5, product.getId());
+            upDate= preparedStatement.executeUpdate()>0;
+        }
+        return upDate;
     }
 
     @Override
