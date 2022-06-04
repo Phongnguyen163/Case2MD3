@@ -147,7 +147,7 @@
     </div>
 
 
-    <div class="row mt-3" style="background: yellow">
+    <div class="row mt-3" style="background: lightgray">
       <div class="col-6 mt-2">
         <nav class="nav flex-column">
           <a class="nav-link active" href="#">Công ty TNHH NPHT</a>
