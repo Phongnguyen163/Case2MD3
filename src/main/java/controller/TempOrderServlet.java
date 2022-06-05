@@ -1,14 +1,8 @@
 package controller;
 
 import model.*;
-import service.OrderDetailService;
-import service.OrderService;
-import service.ProductService;
-import service.UserService;
-import service.impl.OrderDetailServiceImpl;
-import service.impl.OrderServiceImpl;
-import service.impl.TempOrder;
-import service.impl.UserServiceImpl;
+import service.*;
+import service.impl.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,7 +15,7 @@ import java.util.List;
 
 @WebServlet(name = "TempOrderServlet", value = "/carts")
 public class TempOrderServlet extends HttpServlet {
-    ProductService bookService = new ProductServiceImpl();
+    ProductService productService = new ProductServiceImpl();
     TempOrder tempOrderManage = new TempOrder();
     UserService userService = new UserServiceImpl();
     OrderDetailService orderDetailService = new OrderDetailServiceImpl();
@@ -133,7 +127,7 @@ public class TempOrderServlet extends HttpServlet {
         List<TempItem> tempOrder = (List<TempItem>) httpSession.getAttribute("tempOrder");
         int numberOfOrder = Integer.parseInt(request.getParameter("numberOfOrder"));
         int productId = Integer.parseInt(request.getParameter("id"));
-        Product product = ProductService.findById(productId);
+        Product product = productService.findById(productId);
         TempItem tempItem = new TempItem(product, numberOfOrder);
         if (tempOrder == null) {
             tempOrder = new ArrayList<>();
