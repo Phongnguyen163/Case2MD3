@@ -153,8 +153,10 @@
                         <br>
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
-                                <h5>Ảnh Sản Phẩm:</h5>
-                                <input type="text" class="form-control" name="img" value="${product.img}">
+                                <h5>Ảnh cũ Sản Phẩm:</h5>
+                                <img src="${product.img}" class="card-img-top" alt="...">
+                                <h5 class="mt-2">Ảnh Sản Phẩm thay thế tại đây:</h5>
+                                <input type="text" class="form-control mt-2" name="img" value="${product.img}">
 
 <%--                                <input type="text" class="form-control" placeholder="Ảnh" name="${product.img}">--%>
                             </div>

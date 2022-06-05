@@ -49,9 +49,9 @@
 <%--                <a class="nav-link" href="/products?act=delete">Xóa Sản Phẩm</a>--%>
 <%--              </li>--%>
             </ul>
-            <form class="d-flex">
-              <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" action="/home">
+              <input class="form-control mr-2" type="search" placeholder="Tìm tên sản phẩm" aria-label="Search" name="key">
+              <button class="btn btn-outline-success" type="submit">Tìm</button>
             </form>
           </div>
         </nav>
