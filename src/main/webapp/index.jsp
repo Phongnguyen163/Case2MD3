@@ -5,6 +5,7 @@
   Time: 1:39 CH
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -13,101 +14,174 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
   </head>
   <body>
-  <div class="container-fluid">
+  <div class="container-fluid" style="background: bisque">
     <div class="row">
-      <div class="col-3">logo</div>
-      <div class="col-9">banner</div>
-    </div>
-    <div class="row">
-      <div class="col-12">
+      <div class="col-3 mt-3">
+        <img src="../image/abc.jpg" alt="">
+      </div>
+      <div class="col-9 mt-3">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">Navbar scroll</a>
+          <a class="navbar-brand" href="/home">TRANG CHỦ</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
+          <div class="collapse navbar-collapse text-center" id="navbarScroll">
             <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                  Link
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                <a class="nav-link" href="#">Đăng nhập</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Link</a>
+                <a class="nav-link" href="#">Đăng ký</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Giỏ Hàng</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/products?act=create">Thêm Sản Phẩm</a>
+              </li>
+<%--              <li class="nav-item">--%>
+<%--                <a class="nav-link" href="#">Sửa Sản Phẩm</a>--%>
+<%--              </li>--%>
+<%--              <li class="nav-item">--%>
+<%--                <a class="nav-link" href="/products?act=delete">Xóa Sản Phẩm</a>--%>
+<%--              </li>--%>
             </ul>
-            <form class="d-flex">
-              <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" action="/home">
+              <input class="form-control mr-2" type="search" placeholder="Tìm tên sản phẩm" aria-label="Search" name="key">
+              <button class="btn btn-outline-success" type="submit">Tìm</button>
             </form>
           </div>
         </nav>
       </div>
     </div>
+
     <div class="row">
-      <div class="col-2">left</div>
-      <div class="col-7">
+      <div class="col-12 mt-3">
+        <center>
+          <p class="h2">SẢN PHẨM NỔI BẬT</p>
+        </center>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+        <div class="col-10 mt-3">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%; height: 350px; overflow: hidden"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="http://anhnendep.net/wp-content/uploads/2015/07/hinh-nen-trai-cay-dep-9.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://anhnendep.net/wp-content/uploads/2015/07/hinh-nen-trai-cay-dep-3.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../image/Cam1.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../image/Nho1.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </button>
+          </div>
+          </div>
+
+      <div class="col-1"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 mt-3">
+        <center>
+        <p class="h2">SẢN PHẨM ĐANG BÁN</p>
+      </center>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-8">
         <div class="row">
-          <div class="col-12">quangcao</div>
+
+<%--          <h2>${pro.name}, ${pro.img}, ${pro.numberOfProduct}, ${pro.price}, ${pro.categoryzz.name}</h2>--%>
+          <c:forEach items='${products}' var="pro">
+            <div class="col-4 mt-3">
+              <div class="card" style="width: 14rem;">
+                <img src="${pro.img}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text" >${pro.name}</p>
+<%--                  <h5 class="card-title"></h5>--%>
+                  <p class="card-text" >Giá: ${pro.price} VNĐ </p>
+                  <p class="card-text" >Danh mục: ${pro.categoryzz.name}</p>
+<%--                  <a href="#" class="btn btn-primary"> Số lượng: ${pro.numberOfProduct}</a>--%>
+<%--                  <p class="card-text"> acbd</p>--%>
+                  <a href="/products?act=view&id=${pro.id}" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
+                  <a href="/products?act=edit&id=${pro.id}" class="btn btn-primary mt-2">Sửa Sản Phẩm</a>
+                  <a href="/products?act=delete&id=${pro.id}" class="btn btn-primary mt-2">Xóa Sản Phẩm</a>
+                </div>
+              </div>
+            </div>
+          </c:forEach>
+
         </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="card" style="width: 15rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card" style="width: 15rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card" style="width: 15rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
+      </div>
+      <div class="col-3">
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+            DANH MỤC SẢN PHẨM
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+            <c:forEach items='${categories}' var="ca">
+              <h5><a class="dropdown-item" href="/home?categoryid=${ca.id}">${ca.name}</a></h5>
+            </c:forEach>
+
           </div>
         </div>
       </div>
-      <div class="col-3">right</div>
     </div>
-    <div class="row"></div>
+
+
+    <div class="row mt-3" style="background: lightgray">
+      <div class="col-6">
+        <nav class="nav flex-column">
+          <a class="nav-link active" href="#">Công ty TNHH 4 Thành Viên
+          </a>
+        </nav>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <nav class="nav flex-column">
+              <a class="nav-link active" href="#">VỀ CHÚNG TÔI</a>
+              <a class="nav-link" href="#">Tin Tức</a>
+              <a class="nav-link" href="#">Giỏ Hàng</a>
+              <a class="nav-link" href="#">Dịch Vụ</a>
+              <a class="nav-link" href="#">Liên Hệ</a>
+            </nav>
+          </div>
+          <div class="col-6">
+            <nav class="nav flex-column">
+              <a class="nav-link active" href="#">SẢN PHẨM</a>
+              <a class="nav-link" href="#">Rau</a>
+              <a class="nav-link" href="#">Hoa Quả</a>
+              <a class="nav-link" href="#">Thực Phẩm Khác</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
+    </div>
+</div>
   </body>
 </html>
