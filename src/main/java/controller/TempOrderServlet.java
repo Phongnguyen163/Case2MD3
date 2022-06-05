@@ -88,14 +88,14 @@ public class TempOrderServlet extends HttpServlet {
             httpSession.setAttribute("tempOrder", tempOrder);
         }
         if (tempOrder.size() != 0) {
-            List<Integer> intoMoneyList = new ArrayList<>();
+            List<Integer> intoAmountList = new ArrayList<>();
             int totalAmount = 0;
             for (TempItem item : tempOrder) {
-                int intoMoney = item.getProduct().getPrice() * item.getQuantity();
-                intoMoneyList.add(intoMoney);
-                totalAmount += intoMoney;
+                int intoAmount= item.getProduct().getPrice() * item.getQuantity();
+                intoAmountList.add(intoAmount);
+                totalAmount += intoAmount;
             }
-            request.setAttribute("intoMoney", intoMoneyList);
+            request.setAttribute("intoAmount", intoAmountList);
             request.setAttribute("totalAmount", totalAmount);
             requestDispatcher.forward(request, response);
         } else {

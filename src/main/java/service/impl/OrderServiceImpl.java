@@ -58,12 +58,12 @@ public class OrderServiceImpl implements OrderService {
                 int id = resultSet.getInt("id");
                 int customerId = resultSet.getInt("customerId");
                 String nameCustomer = resultSet.getString("u.name");
-                int ownerShopId = resultSet.getInt("staffId");
-                String nameStaff = resultSet.getString("u2.name");
-                LocalDateTime localDateTime = LocalDateTime.parse(resultSet.getString("orderDate"));
+                int ownerShopId = resultSet.getInt("ownerShopId");
+                String nameOwner = resultSet.getString("u2.name");
+                LocalDateTime localDateTime = LocalDateTime.parse(resultSet.getString("date"));
                 int totalAmount = resultSet.getInt("totalAmount");
                 User customer = new User(customerId, nameCustomer);
-                User ownerShop = new User(ownerShopId, nameStaff);
+                User ownerShop = new User(ownerShopId, nameOwner);
                 int status = resultSet.getInt("status");
                 Order order = new Order(id, customer, ownerShop, localDateTime, totalAmount, status);
                 orders.add(order);
@@ -99,11 +99,11 @@ public class OrderServiceImpl implements OrderService {
         return false;
     }
 
-    public boolean confirm(String id, int staffId) {
+    public boolean confirm(String id, int ownerShopId) {
         boolean rowUpdate;
         String updateOrder = "update case3.orderr set ownerShopId = ?, status = 2 where id = ?";
         try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(updateOrder)){
-            preparedStatement.setString(1, String.valueOf(staffId));
+            preparedStatement.setString(1, String.valueOf(ownerShopId));
             preparedStatement.setString(2, id);
             rowUpdate = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -113,11 +113,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public boolean delete(String id, int staffId) {
+    public boolean delete(String id, int ownerShopId) {
         boolean rowUpdate;
         String updateOrder = "update case3.orderr set ownerShopId = ?, status = 0 where id = ?";
         try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(updateOrder)){
-            preparedStatement.setString(1, String.valueOf(staffId));
+            preparedStatement.setString(1, String.valueOf(ownerShopId));
             preparedStatement.setString(2, id);
             rowUpdate = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -140,7 +140,7 @@ public class OrderServiceImpl implements OrderService {
                 int id = resultSet.getInt("id");
                 int customerId = resultSet.getInt("customerId");
                 String name = resultSet.getString("name");
-                LocalDateTime localDateTime = LocalDateTime.parse(resultSet.getString("orderDate"));
+                LocalDateTime localDateTime = LocalDateTime.parse(resultSet.getString("date"));
                 int totalAmount = resultSet.getInt("totalAmount");
                 User user = new User(customerId, name);
                 Order order = new Order(id, user, localDateTime, totalAmount);
@@ -161,7 +161,7 @@ public class OrderServiceImpl implements OrderService {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 int idFind = resultSet.getInt("id");
-                LocalDateTime dateTime = LocalDateTime.parse(resultSet.getString("orderDate"));
+                LocalDateTime dateTime = LocalDateTime.parse(resultSet.getString("date"));
                 int totalAmount = resultSet.getInt("totalAmount");
                 order = new Order(idFind,dateTime, totalAmount);
             }
@@ -184,7 +184,7 @@ public class OrderServiceImpl implements OrderService {
                 int id = resultSet.getInt("id");
                 int customerId = resultSet.getInt("customerId");
                 String name = resultSet.getString("name");
-                LocalDateTime localDateTime = LocalDateTime.parse(resultSet.getString("orderDate"));
+                LocalDateTime localDateTime = LocalDateTime.parse(resultSet.getString("date"));
                 int totalAmount = resultSet.getInt("totalAmount");
                 User user = new User(customerId, name);
                 Order order = new Order(id, user, localDateTime, totalAmount);

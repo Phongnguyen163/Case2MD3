@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c3f9f56-e5b4-4333-88cc-9a4e954192c4" name="Changes" comment="thuan commit nav">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/UnconfirmedServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/OrderManagementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/OrderManagementServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProductServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/TempOrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TempOrderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/GeneralService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/GeneralService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/OrderDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/OrderDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/OrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

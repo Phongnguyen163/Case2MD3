@@ -73,7 +73,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
             preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                int productId = resultSet.getInt("bookId");
+                int productId = resultSet.getInt("productId");
                 String name = resultSet.getString("name");
                 int numberOfOrder = resultSet.getInt("numberOfOrder");
                 int intoAmount = resultSet.getInt("intoAmount");
