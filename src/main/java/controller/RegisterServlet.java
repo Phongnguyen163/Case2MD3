@@ -62,7 +62,6 @@ public class RegisterServlet extends HttpServlet {
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
         int roleId = 2;
-        boolean status = Boolean.parseBoolean(request.getParameter("status"));
         if (userService.findByUserName(username) == null) {
             userService.add(new User(username, password, name, phone, roleId));
             response.sendRedirect("/logins");

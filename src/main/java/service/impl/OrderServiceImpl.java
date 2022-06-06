@@ -13,7 +13,7 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
     private String jdbcURL = "jdbc:mysql://localhost:3306/case3?useSSL=false";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "1234";
+    private String jdbcPassword = "123456";
 
     protected Connection getConnection() {
         Connection connection = null;

@@ -16,7 +16,7 @@ public class ProductServiceImpl implements ProductService {
         Connection connection = null;
         try {
             java.lang.Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/case3?useSSL=false", "root", "1234");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/case3?useSSL=false", "root", "123456");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
