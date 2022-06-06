@@ -1,0 +1,91 @@
+package controller;
+
+import model.Order;
+import model.OrderDetail;
+import service.OrderDetailService;
+import service.impl.ProductServiceImpl;
+import service.impl.OrderDetailServiceImpl;
+import service.impl.OrderServiceImpl;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet(name = "OrderManagementServlet", value = "/order-management")
+public class OrderManagementServlet extends HttpServlet {
+    OrderServiceImpl orderService = new OrderServiceImpl();
+    OrderDetailService orderDetailService = new OrderDetailServiceImpl();
+    ProductServiceImpl productService = new ProductServiceImpl();
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
+        HttpSession httpSession = request.getSession();
+        String action = request.getParameter("action");
+        if(action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "unconfirm":
+                showUnconfirm(request, response);
+                break;
+            case "confirm":
+                confirmOrder(request, response, httpSession);
+                break;
+            case "delete":
+                deleteOrder(request, response, httpSession);
+                break;
+            case "search":
+                searchOrderDetail(request, response);
+                break;
+            default:
+                showOrder(request, response);
+        }
+    }
+
+    private void deleteOrder(HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) throws IOException {
+        String id = request.getParameter("id");
+        int StaffId = (int) httpSession.getAttribute("userId");
+        orderService.delete(id, StaffId);
+        response.sendRedirect("/order-management?action=unconfirm");
+    }
+
+    private void confirmOrder(HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) throws IOException {
+        String id = request.getParameter("id");
+        int StaffId = (int) httpSession.getAttribute("userId");
+        orderService.confirm(id, StaffId);
+        productService.editQuantity(orderDetailService.findByOrderId(id));
+        response.sendRedirect("/order-management?action=unconfirm");
+    }
+
+    private void showUnconfirm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("order/unconfirm-manage.jsp");
+        List<Order> orders = orderService.findUnconfirm();
+        request.setAttribute("orders", orders);
+        requestDispatcher.forward(request, response);
+    }
+
+    private void searchOrderDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("order-detail/order-detail.jsp");
+        String id = request.getParameter("id");
+        List<OrderDetail> orderDetails = orderDetailService.findByOrderId(id);
+        Order order = orderService.findById(id);
+        request.setAttribute("order", order);
+        request.setAttribute("orderDetails", orderDetails);
+        requestDispatcher.forward(request, response);
+    }
+
+    private void showOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("order/list.jsp");
+        List<Order> orders = orderService.findAll();
+        request.setAttribute("orders", orders);
+        requestDispatcher.forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+}

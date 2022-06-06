@@ -49,7 +49,7 @@
                             <a class="nav-link" href="#">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Thêm Sản Phẩm</a>
+                            <a class="nav-link" href="/products?act=create">Thêm Sản Phẩm</a>
                         </li>
                         <%--                        <li class="nav-item">--%>
                         <%--                            <a class="nav-link" href="/products?act=create">Sửa Sản Phẩm</a>--%>
@@ -146,13 +146,17 @@
                     <form method="post">
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
+                                <h5>Tên Sản Phẩm:</h5>
                                 <input type="text" class="form-control" name="name" value="${product.name}">
                             </div>
                         </div>
                         <br>
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
-                                <input type="text" class="form-control" name="img" value="${product.img}">
+                                <h5>Ảnh cũ Sản Phẩm:</h5>
+                                <img src="${product.img}" class="card-img-top" alt="...">
+                                <h5 class="mt-2">Ảnh Sản Phẩm thay thế tại đây:</h5>
+                                <input type="text" class="form-control mt-2" name="img" value="${product.img}">
 
 <%--                                <input type="text" class="form-control" placeholder="Ảnh" name="${product.img}">--%>
                             </div>
@@ -160,12 +164,14 @@
                         <br>
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
+                                <h5>Số Lượng Sản Phẩm:</h5>
                                 <input type="number" class="form-control" name="numberOfProduct" value="${product.numberOfProduct}">
                             </div>
                         </div>
                         <br>
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
+                                <h5>Giá Sản Phẩm:</h5>
                                 <input type="number" class="form-control" name="price" value="${product.price}">
                             </div>
                         </div>
@@ -193,7 +199,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
                     <c:forEach items='${categories}' var="ca">
-                        <h5><a class="dropdown-item" href="#">${ca.name}</a></h5>
+                        <h5><a class="dropdown-item" href="/home?categoryid=${ca.id}">${ca.name}</a></h5>
                     </c:forEach>
 
                 </div>
@@ -208,10 +214,7 @@
     <div class="row" style="background: lightgray">
         <div class="col-6">
             <nav class="nav flex-column">
-                <a class="nav-link active" href="#">Công ty TNHH NPHT</a>
-                <h4>h4. Bootstrap heading</h4>
-                <h5>h5. Bootstrap heading</h5>
-                <h6>h6. Bootstrap heading</h6>
+                <a class="nav-link active" href="#">Công ty TNHH 4 Thành Viên</a>
             </nav>
         </div>
         <div class="col-6">
