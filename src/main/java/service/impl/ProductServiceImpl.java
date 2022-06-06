@@ -1,13 +1,16 @@
-package service;
+package service.impl;
 
 import model.Category;
+import model.OrderDetail;
 import model.Product;
+import service.CategoryService;
+import service.ProductService;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
     CategoryService categoryService = new CategoryServiceImpl();
     protected Connection getConnection() {
         Connection connection = null;
@@ -31,7 +34,7 @@ public class ProductServiceImpl implements ProductService{
 
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement("select * from product");) {
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from case3.product");) {
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
@@ -55,7 +58,7 @@ public class ProductServiceImpl implements ProductService{
     public void add(Product product) throws SQLException {
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement("insert into product (name,img,numberOfProduct,price,categoryid) value (?,?,?,?,?)");) {
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into case3.product (name,img,numberOfProduct,price,categoryid) value (?,?,?,?,?)");) {
             preparedStatement.setString(1, product.getName());
             preparedStatement.setString(2, product.getImg());
             preparedStatement.setInt(3, product.getNumberOfProduct());
@@ -75,7 +78,7 @@ public class ProductServiceImpl implements ProductService{
         Product product = new Product();
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement("select * from product where id = ?");) {
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from case3.product where id = ?");) {
             preparedStatement.setInt(1,id);
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
@@ -96,7 +99,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public boolean delete(int id) throws SQLException {
         boolean rowDeleted;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement("delete from product where id=?");) {
+        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement("delete from case3.product where id=?");) {
             statement.setInt(1, id);
             System.out.println(statement);
             rowDeleted = statement.executeUpdate() > 0;
@@ -108,7 +111,7 @@ public class ProductServiceImpl implements ProductService{
     public boolean update(Product product) throws SQLException {
         boolean upDate;
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = getConnection().prepareStatement("update product set name = ?, img = ?, numberOfProduct = ?, price = ?  where id = ?");) {
+             PreparedStatement preparedStatement = getConnection().prepareStatement("update case3.product set name = ?, img = ?, numberOfProduct = ?, price = ?  where id = ?");) {
             preparedStatement.setString(1, product.getName());
             preparedStatement.setString(2, product.getImg());
             preparedStatement.setInt(3, product.getNumberOfProduct());
@@ -124,10 +127,6 @@ public class ProductServiceImpl implements ProductService{
         return null;
     }
 
-    @Override
-    public List<Product> findAllOderByAge() {
-        return null;
-    }
 
     @Override
     public List<Product> findAllByClass(int categoryid) {
@@ -135,7 +134,7 @@ public class ProductServiceImpl implements ProductService{
 
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement("select * from product where categoryid = ?");) {
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from case3.product where categoryid = ?");) {
             preparedStatement.setInt(1,categoryid);
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
@@ -162,7 +161,7 @@ public class ProductServiceImpl implements ProductService{
 
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement("select * from product where name like ?");) {
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from case3.product where name like ?");) {
             preparedStatement.setString(1,"%"+key+"%");
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
@@ -181,5 +180,19 @@ public class ProductServiceImpl implements ProductService{
         }
 
         return products;
+    }
+
+    public void editQuantity(List<OrderDetail> orderDetails) {
+        for (OrderDetail orderDetail : orderDetails) {
+            String editQuantity = "update case3.product set numberOfProduct = ? where id = ?";
+            try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(editQuantity)) {
+                int number = orderDetail.getProduct().getNumberOfProduct() - orderDetail.getNumberOfOrder();
+                preparedStatement.setString(1, String.valueOf(number));
+                preparedStatement.setString(2, String.valueOf(orderDetail.getProduct().getId()));
+                preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }

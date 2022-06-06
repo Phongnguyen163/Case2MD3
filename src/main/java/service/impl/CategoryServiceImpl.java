@@ -1,12 +1,13 @@
-package service;
+package service.impl;
 
 import model.Category;
+import service.CategoryService;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryServiceImpl implements CategoryService{
+public class CategoryServiceImpl implements CategoryService {
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -29,7 +30,7 @@ public class CategoryServiceImpl implements CategoryService{
 
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement("select * from category");) {
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from case3.category");) {
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
@@ -53,7 +54,7 @@ public class CategoryServiceImpl implements CategoryService{
         Category categoryzz = new Category();
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement("select * from category where id = ?");) {
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from case3.category where id = ?");) {
             preparedStatement.setInt(1,id);
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
@@ -82,8 +83,4 @@ public class CategoryServiceImpl implements CategoryService{
         return null;
     }
 
-    @Override
-    public List<Category> findAllOderByAge() {
-        return null;
-    }
 }
