@@ -3,9 +3,9 @@ package controller;
 import model.Category;
 import model.Product;
 import service.CategoryService;
-import service.CategoryServiceImpl;
+import service.impl.CategoryServiceImpl;
 import service.ProductService;
-import service.ProductServiceImpl;
+import service.impl.ProductServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -20,6 +20,27 @@ public class ProductServlet extends HttpServlet {
     CategoryService categoryService = new CategoryServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+//        String categoryid = request.getParameter("categoryid");
+//        String key = request.getParameter("key");
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/nam.jsp");
+//        List<Category> categories = categoryService.findAll();
+//        request.setAttribute("categories", categories);
+//        List<Product> products = productService.findAll();
+//        if (categoryid != null) {
+//            products = productService.findAllByClass(Integer.parseInt(categoryid));
+//        }
+//        if (key != null) {
+//            products = productService.findAllByNameContains(key);
+//        }
+//        request.setAttribute("products", products);
+//        requestDispatcher.forward(request, response);
+
+
+
+
+
         String action = request.getParameter("act");
         if (action == null) {
             action = "";
@@ -29,20 +50,32 @@ public class ProductServlet extends HttpServlet {
                 showCreateForm(request, response);
                 break;
             case "view":
-                showView(request, response);
+                try {
+                    showView(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "delete":
-                showDelete(request, response);
+                try {
+                    showDelete(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "edit":
-                showEdit(request, response);
+                try {
+                    showEdit(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 showList(request, response);
         }
     }
 
-    private void showEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         List<Category> categories = categoryService.findAll();
         request.setAttribute("categories", categories);
         int id = Integer.parseInt(request.getParameter("id"));
@@ -52,7 +85,7 @@ public class ProductServlet extends HttpServlet {
         requestDispatcher.forward(request, response);
     }
 
-    private void showDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         List<Category> categories = categoryService.findAll();
         request.setAttribute("categories", categories);
         int id = Integer.parseInt(request.getParameter("id"));
@@ -63,7 +96,7 @@ public class ProductServlet extends HttpServlet {
 
     }
 
-    private void showView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         List<Category> categories = categoryService.findAll();
         request.setAttribute("categories", categories);
         int id = Integer.parseInt(request.getParameter("id"));
@@ -129,13 +162,13 @@ public class ProductServlet extends HttpServlet {
         int categoryid = Integer.parseInt(request.getParameter("categoryid"));
         Category categoryz = categoryService.findById(categoryid);
         productService.update(new Product(id,name,img,numberOfProduct,price,categoryz));
-        response.sendRedirect("/home");
+        response.sendRedirect("/products");
     }
 
     private void deleteForm(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
         productService.delete(id);
-        response.sendRedirect("/home");
+        response.sendRedirect("/products");
     }
 
     private void CreateForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
@@ -146,7 +179,7 @@ public class ProductServlet extends HttpServlet {
         int categoryid = Integer.parseInt(request.getParameter("categoryid"));
         Category categoryz = categoryService.findById(categoryid);
         productService.add(new Product(0,name,img,numberOfProduct,price,categoryz));
-        response.sendRedirect("/home");
+        response.sendRedirect("/products");
 
 //        Class clazz = classService.findById(cID);
 //        studentService.add(new Student(0,name,age,clazz));

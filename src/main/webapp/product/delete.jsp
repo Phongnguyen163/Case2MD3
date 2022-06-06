@@ -45,7 +45,7 @@
         </div>
         <div class="col-9 mt-3">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="/home">TRANG CHỦ</a>
+                <a class="navbar-brand" href="/products">TRANG CHỦ</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -57,12 +57,12 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng nhập</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng ký</a>
-                        </li>
+<%--                        <li class="nav-item">--%>
+<%--                            <a class="nav-link" href="#">Đăng nhập</a>--%>
+<%--                        </li>--%>
+<%--                        <li class="nav-item">--%>
+<%--                            <a class="nav-link" href="#">Đăng ký</a>--%>
+<%--                        </li>--%>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Giỏ Hàng</a>
                         </li>

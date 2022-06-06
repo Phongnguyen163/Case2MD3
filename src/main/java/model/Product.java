@@ -20,6 +20,12 @@ public class Product {
         this.categoryzz = categoryzz;
     }
 
+    public Product(int id, String name, int numberOfProduct) {
+        this.id = id;
+        this.name = name;
+        this.numberOfProduct = numberOfProduct;
+    }
+
     public int getId() {
         return id;
     }

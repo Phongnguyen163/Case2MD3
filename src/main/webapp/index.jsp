@@ -32,22 +32,16 @@
                 <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Đăng nhập</a>
+                <a class="nav-link" href="/logins">Đăng nhập</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Đăng ký</a>
+                <a class="nav-link" href="/registers">Đăng ký</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Giỏ Hàng</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/products?act=create">Thêm Sản Phẩm</a>
-              </li>
 <%--              <li class="nav-item">--%>
-<%--                <a class="nav-link" href="#">Sửa Sản Phẩm</a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a class="nav-link" href="/products?act=delete">Xóa Sản Phẩm</a>--%>
+<%--                <a class="nav-link" href="/products?act=create">Thêm Sản Phẩm</a>--%>
 <%--              </li>--%>
             </ul>
             <form class="d-flex" action="/home">
@@ -111,21 +105,17 @@
       <div class="col-8">
         <div class="row">
 
-<%--          <h2>${pro.name}, ${pro.img}, ${pro.numberOfProduct}, ${pro.price}, ${pro.categoryzz.name}</h2>--%>
           <c:forEach items='${products}' var="pro">
             <div class="col-4 mt-3">
               <div class="card" style="width: 14rem;">
                 <img src="${pro.img}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <p class="card-text" >${pro.name}</p>
-<%--                  <h5 class="card-title"></h5>--%>
                   <p class="card-text" >Giá: ${pro.price} VNĐ </p>
                   <p class="card-text" >Danh mục: ${pro.categoryzz.name}</p>
-<%--                  <a href="#" class="btn btn-primary"> Số lượng: ${pro.numberOfProduct}</a>--%>
-<%--                  <p class="card-text"> acbd</p>--%>
                   <a href="/products?act=view&id=${pro.id}" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
-                  <a href="/products?act=edit&id=${pro.id}" class="btn btn-primary mt-2">Sửa Sản Phẩm</a>
-                  <a href="/products?act=delete&id=${pro.id}" class="btn btn-primary mt-2">Xóa Sản Phẩm</a>
+<%--                  <a href="/products?act=edit&id=${pro.id}" class="btn btn-primary mt-2">Sửa Sản Phẩm</a>--%>
+<%--                  <a href="/products?act=delete&id=${pro.id}" class="btn btn-primary mt-2">Xóa Sản Phẩm</a>--%>
                 </div>
               </div>
             </div>
