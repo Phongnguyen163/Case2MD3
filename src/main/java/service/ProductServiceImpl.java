@@ -54,31 +54,69 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void add(Product product) throws SQLException {
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("insert into product(name,img,numberOfProduct,price,categoryid) values (?,?,?,?,?)");){
-            preparedStatement.setString(1,product.getName());
+
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into product (name,img,numberOfProduct,price,categoryid) value (?,?,?,?,?)");) {
+            preparedStatement.setString(1, product.getName());
             preparedStatement.setString(2, product.getImg());
             preparedStatement.setInt(3, product.getNumberOfProduct());
             preparedStatement.setInt(4, product.getPrice());
             preparedStatement.setInt(5, product.getCategoryzz().getId());
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
 
+            System.out.println(preparedStatement);
+
+        } catch (SQLException e) {
         }
+
     }
 
     @Override
     public Product findById(int id) {
-        return null;
+        Product product = new Product();
+        try (Connection connection = getConnection();
+
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from product where id = ?");) {
+            preparedStatement.setInt(1,id);
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String img = rs.getString("img");
+                int numberOfProduct = rs.getInt("numberOfProduct");
+                int price = rs.getInt("price");
+                int categoryid = rs.getInt("categoryid");
+                Category categoryz = categoryService.findById(categoryid);
+                product = new Product(id,name,img,numberOfProduct,price,categoryz);
+            }
+        } catch (SQLException e) {
+        }
+        return product;
     }
 
     @Override
     public boolean delete(int id) throws SQLException {
-        return false;
+        boolean rowDeleted;
+        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement("delete from product where id=?");) {
+            statement.setInt(1, id);
+            System.out.println(statement);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
     }
 
     @Override
     public boolean update(Product product) throws SQLException {
-        return false;
+        boolean upDate;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = getConnection().prepareStatement("update product set name = ?, img = ?, numberOfProduct = ?, price = ?  where id = ?");) {
+            preparedStatement.setString(1, product.getName());
+            preparedStatement.setString(2, product.getImg());
+            preparedStatement.setInt(3, product.getNumberOfProduct());
+            preparedStatement.setInt(4, product.getPrice());
+            preparedStatement.setInt(5, product.getId());
+            upDate= preparedStatement.executeUpdate()>0;
+        }
+        return upDate;
     }
 
     @Override

@@ -17,15 +17,15 @@
   <div class="container-fluid" style="background: bisque">
     <div class="row">
       <div class="col-3 mt-3">
-        <img src="image/abc.jpg" alt="">
+        <img src="../image/abc.jpg" alt="">
       </div>
       <div class="col-9 mt-3">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">TRANG CHỦ</a>
+          <a class="navbar-brand" href="/home">TRANG CHỦ</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
+          <div class="collapse navbar-collapse text-center" id="navbarScroll">
             <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
               <li class="nav-item active">
                 <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
@@ -40,14 +40,14 @@
                 <a class="nav-link" href="#">Giỏ Hàng</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/products?act=create">Thêm sản phẩm</a>
+                <a class="nav-link" href="/products?act=create">Thêm Sản Phẩm</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sửa Sản Phẩm</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Xóa Sản Phẩm</a>
-              </li>
+<%--              <li class="nav-item">--%>
+<%--                <a class="nav-link" href="#">Sửa Sản Phẩm</a>--%>
+<%--              </li>--%>
+<%--              <li class="nav-item">--%>
+<%--                <a class="nav-link" href="/products?act=delete">Xóa Sản Phẩm</a>--%>
+<%--              </li>--%>
             </ul>
             <form class="d-flex">
               <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
@@ -78,10 +78,10 @@
                 <img src="https://anhnendep.net/wp-content/uploads/2015/07/hinh-nen-trai-cay-dep-3.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="image/Cam1.jpg" class="d-block w-100" alt="...">
+                <img src="../image/Cam1.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="image/Nho1.jpg" class="d-block w-100" alt="...">
+                <img src="../image/Nho1.jpg" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
@@ -101,7 +101,7 @@
     <div class="row">
       <div class="col-12 mt-3">
         <center>
-        <p class="h2">DANH SÁCH CHI TIẾT SẢN PHẨM</p>
+        <p class="h2">SẢN PHẨM ĐANG BÁN</p>
       </center>
       </div>
     </div>
@@ -109,15 +109,22 @@
       <div class="col-1"></div>
       <div class="col-8">
         <div class="row">
+
+<%--          <h2>${pro.name}, ${pro.img}, ${pro.numberOfProduct}, ${pro.price}, ${pro.categoryzz.name}</h2>--%>
           <c:forEach items='${products}' var="pro">
             <div class="col-4 mt-3">
               <div class="card" style="width: 14rem;">
                 <img src="${pro.img}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <p class="card-text" >${pro.name}</p>
+<%--                  <h5 class="card-title"></h5>--%>
                   <p class="card-text" >Giá: ${pro.price} VNĐ </p>
                   <p class="card-text" >Danh mục: ${pro.categoryzz.name}</p>
-                  <a href="#" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
+<%--                  <a href="#" class="btn btn-primary"> Số lượng: ${pro.numberOfProduct}</a>--%>
+<%--                  <p class="card-text"> acbd</p>--%>
+                  <a href="/products?act=view&id=${pro.id}" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
+                  <a href="/products?act=edit&id=${pro.id}" class="btn btn-primary mt-2">Sửa Sản Phẩm</a>
+                  <a href="/products?act=delete&id=${pro.id}" class="btn btn-primary mt-2">Xóa Sản Phẩm</a>
                 </div>
               </div>
             </div>
@@ -142,7 +149,7 @@
     </div>
 
 
-    <div class="row mt-3" style="background:black">
+    <div class="row mt-3" style="background: lightgray">
       <div class="col-6 mt-2">
         <nav class="nav flex-column">
           <a class="nav-link active" href="#">Công ty TNHH NPHT</a>

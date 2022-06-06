@@ -17,15 +17,24 @@
 <div class="container-fluid" style="background: bisque">
     <div class="row">
         <div class="col-3 mt-3">
+
+
+            <%--        (Cop Cái Này)--%>
             <img src="../image/abc.jpg" alt="">
+
+
+
+
         </div>
         <div class="col-9 mt-3">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">TRANG CHỦ</a>
+                <a class="navbar-brand" href="/home">TRANG CHỦ</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarScroll">
+                <div class="collapse navbar-collapse text-center" id="navbarScroll">
+
+
                     <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
@@ -40,12 +49,17 @@
                             <a class="nav-link" href="#">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sửa Sản Phẩm</a>
+                            <a class="nav-link" href="#">Thêm Sản Phẩm</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Xóa Sản Phẩm</a>
-                        </li>
+<%--                        <li class="nav-item">--%>
+<%--                            <a class="nav-link" href="/products?act=create">Sửa Sản Phẩm</a>--%>
+<%--                        </li>--%>
+<%--                        <li class="nav-item">--%>
+<%--                            <a class="nav-link" href="#">Xóa Sản Phẩm</a>--%>
+<%--                        </li>--%>
                     </ul>
+
+
                     <form class="d-flex">
                         <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -62,6 +76,8 @@
             </center>
         </div>
     </div>
+
+
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10 mt-3">
@@ -100,7 +116,7 @@
     <div class="row">
         <div class="col-12 mt-3">
             <center>
-                <p class="h2">THÊM SẢN PHẨM</p>
+                <p class="h2">THÊM SẢN PHẨM MỚI</p>
             </center>
         </div>
     </div>
@@ -110,61 +126,84 @@
         <div class="col-1"></div>
         <div class="col-8">
             <div class="row">
-
                 <div class="col-12 mt-3">
+
+                    <%--<form method="post">--%>
+                    <%--    <input type="text" name="name">--%>
+                    <%--    <input type="text" name="img">--%>
+                    <%--    <input type="text" name="numberOfProduct">--%>
+                    <%--    <input type="text" name="price">--%>
+                    <%--    <select name="categoryid">--%>
+                    <%--        <c:forEach items='${categories}' var="ca">--%>
+                    <%--            <option value="${ca.id}">${ca.name}</option>--%>
+                    <%--        </c:forEach>--%>
+                    <%--    </select>--%>
+                    <%--    <button>--%>
+                    <%--        Thêm--%>
+                    <%--    </button>--%>
+                    <%--</form>--%>
+
                     <form method="post">
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
-                                <input type="text" class="form-control" placeholder="NAME" name="name">
+                                <input type="text" class="form-control" placeholder="Tên Sản Phẩm" name="name">
                             </div>
                         </div>
                         <br>
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
-                                <input type="text" class="form-control" placeholder="ING" name="img">
+                                <input type="text" class="form-control" placeholder="Ảnh" name="img">
                             </div>
                         </div>
                         <br>
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
-                                <input type="number" class="form-control" placeholder="NUMBEROFPRODUCT" name="numberOfProduct">
+                                <input type="number" class="form-control" placeholder="Số lượng" name="numberOfProduct">
                             </div>
                         </div>
                         <br>
                         <div class="row" style="width: 100%">
                             <div class="col-12" style="width: 100%">
-                                <input type="number" class="form-control" placeholder="PRICE" name="price">
+                                <input type="number" class="form-control" placeholder="Giá" name="price">
                             </div>
                         </div>
                         <br>
+                        <h5>Danh Mục: </h5>
                         <select name="categoryid">
-                            <c:forEach items="${categoryes}" var="ct" >
-                                <option value="${ct.id}">${ct.name}</option>
+                            <c:forEach items='${categories}' var="ca">--%>
+                                <option value="${ca.id}">${ca.name}</option>
                             </c:forEach>
                         </select>
-                        <button type="button" class="btn btn-primary">ADD</button>
+                        <button class="btn btn-primary">Thêm</button>
                     </form>
                 </div>
 
             </div>
         </div>
+
+
+
         <div class="col-3">
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                    DANH SÁCH SẢN PHẨM
+                    DANH MỤC SẢN PHẨM
                 </a>
-
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Rau</a>
-                    <a class="dropdown-item" href="#">Hoa quả</a>
-                    <a class="dropdown-item" href="#">sản phẩm khác</a>
+
+                    <c:forEach items='${categories}' var="ca">
+                        <h5><a class="dropdown-item" href="#">${ca.name}</a></h5>
+                    </c:forEach>
+
                 </div>
             </div>
         </div>
+
+
+
     </div>
 
 
-    <div class="row" style="background: black">
+    <div class="row" style="background: lightgray">
         <div class="col-6">
             <nav class="nav flex-column">
                 <a class="nav-link active" href="#">Công ty TNHH NPHT</a>
