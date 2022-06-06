@@ -3,9 +3,9 @@ package controller;
 import model.Category;
 import model.Product;
 import service.CategoryService;
-import service.CategoryServiceImpl;
+import service.impl.CategoryServiceImpl;
 import service.ProductService;
-import service.ProductServiceImpl;
+import service.impl.ProductServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
