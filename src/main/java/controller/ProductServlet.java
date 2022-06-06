@@ -127,8 +127,6 @@ public class ProductServlet extends HttpServlet {
                     throw new RuntimeException(e);
                 }
                 break;
-            default:
-                showList(request, response);
         }
     }
 
@@ -141,7 +139,7 @@ public class ProductServlet extends HttpServlet {
         int categoryid = Integer.parseInt(request.getParameter("categoryid"));
         Category categoryz = categoryService.findById(categoryid);
         productService.update(new Product(id,name,img,numberOfProduct,price,categoryz));
-        response.sendRedirect("/home");
+        response.sendRedirect("/pruduct/tao.jsp");
     }
 
     private void deleteForm(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {

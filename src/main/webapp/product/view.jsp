@@ -89,16 +89,10 @@
                     <c:forEach items='${categories}' var="ca">
                         <h5><a class="dropdown-item" href="/home?categoryid=${ca.id}">${ca.name}</a></h5>
                     </c:forEach>
-
                 </div>
             </div>
         </div>
-
-
-
     </div>
-
-
     <div class="row mt-3" style="background: lightgray">
         <div class="col-6">
             <nav class="nav flex-column">

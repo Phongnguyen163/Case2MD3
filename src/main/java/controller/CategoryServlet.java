@@ -20,9 +20,6 @@ public class CategoryServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
-//            case "create":
-//                showCreateForm(request, response);
-//                break;
             default:
                 showList(request, response);
         }

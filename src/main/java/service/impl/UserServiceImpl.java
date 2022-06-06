@@ -115,8 +115,11 @@ public class UserServiceImpl implements UserService {
                 String nameFind = rs.getString("name");
                 String phone = rs.getString("phoneNumber");
                 int roleId = rs.getInt("roleId");
-                user.add(new User(id,usernameFind,password,nameFind,phone,roleId));
-                return user;
+                if(usernameFind == name) {
+                    user.add(new User(id,usernameFind,password,nameFind,phone,roleId));
+                    return user;
+                }
+
             }
         } catch (SQLException ignored) {
 

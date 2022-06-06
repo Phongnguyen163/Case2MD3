@@ -107,7 +107,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("userId", user.getId());
             currentId = user.getId();
             name = user.getName();
-            response.sendRedirect("/");
+            response.sendRedirect("/products");
         }
     }
 }

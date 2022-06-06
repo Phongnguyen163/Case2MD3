@@ -13,7 +13,7 @@
 </head>
 <body>
 <h2>Day la danh sach</h2>
-<c:forEach items='${ds}' var="pro">
+<c:forEach items="${ds}" var="pro">
     <h2>${pro.name}, ${pro.img}, ${pro.numberOfProduct}, ${pro.price}, ${pro.categoryzz.name}</h2>
 </c:forEach>
 </body>
