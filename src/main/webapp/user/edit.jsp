@@ -1,86 +1,87 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: bachk
-  Date: 03/06/2022
-  Time: 2:18 CH
-  To change this template use File | Settings | File Templates.
---%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Book Online Store Website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="assets/css/main.css"/>
-    <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css"/>
-    </noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 </head>
 <body>
-<div id="wrapper">
-    <!-- Header -->
-    <header id="header">
-        <div class="inner">
-
-            <!-- Logo -->
-            <a href="/" class="logo">
-                <span class="fa fa-book"></span> <span class="title">Nhà sách bông bông</span>
-            </a>
-
-            <!-- Nav -->
-            <nav>
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                </ul>
-            </nav>
-
+<div class="container-fluid" style="background: bisque">
+    <div class="row">
+        <div class="col-3 mt-3">
+            <img src="../image/abc.jpg" alt="">
         </div>
-    </header>
-
-    <!-- Menu -->
-    <nav id="menu">
-        <h2>Menu</h2>
-        <ul>
-            <c:if test="${name == null}">
-                <li><a href="logins">Đăng nhập</a></li>
-            </c:if>
-            <li><a href="/" class="active">Trang chủ</a></li>
-            <c:if test="${name != null}">
-                <li><a href="/logins?action=view">${name}</a></li>
-                <li>
-                    <span class="dropdown-toggle">Đơn hàng</span>
-                    <ul>
-                        <li><a href="/carts">Giỏ hàng</a></li>
-                        <li><a href="/unconfirmed-orders">Đơn hàng chờ xác nhận</a></li>
-                    </ul>
-                </li>
-            </c:if>
-            <li><a href="/books">Sách</a></li>
-            <c:if test="${name != null && (roleId==1 || roleId==2)}">
-                <li>
-                    <span class="dropdown-toggle">Quản lý</span>
-                    <ul>
-                        <li><a href="/book-management">Quản lý sách</a></li>
-                        <li><a href="/authors">Quản lý tác giả</a></li>
-                        <li><a href="/customers">Quản lý khách hàng</a></li>
-                        <li><a href="/users">Quản lý nhân viên</a></li>
-                        <li>
-                            <span class="dropdown-toggle">Quản lý đơn hàng</span>
-                            <ul>
-                                <li><a href="/order-management">Quản lý đơn hàng</a></li>
-                                <li><a href="/order-management?action=unconfirm">Đơn hàng chưa xác nhận</a></li>
-                            </ul>
+        <div class="col-9 mt-3">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/home">TRANG CHỦ</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse text-center" id="navbarScroll">
+                    <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/registers">Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Giỏ Hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/products?act=create">Thêm Sản Phẩm</a>
                         </li>
                     </ul>
-                </li>
-            </c:if>
-            <li><a href="#footer">Liên hệ</a></li>
-            <c:if test="${name != null}">
-                <li><a href="/logins?action=logout">Đăng xuất</a></li>
-            </c:if>
-        </ul>
-    </nav>
+                    <form class="d-flex" action="/home">
+                        <input class="form-control mr-2" type="search" placeholder="Tìm tên sản phẩm" aria-label="Search" name="key">
+                        <button class="btn btn-outline-success" type="submit">Tìm</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mt-3">
+            <center>
+                <p class="h2">SẢN PHẨM NỔI BẬT</p>
+            </center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 mt-3">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%; height: 350px; overflow: hidden"
+            >
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="http://anhnendep.net/wp-content/uploads/2015/07/hinh-nen-trai-cay-dep-9.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://anhnendep.net/wp-content/uploads/2015/07/hinh-nen-trai-cay-dep-3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../image/Cam1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../image/Nho1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-1"></div>
+    </div>
+
     <div class="container">
         <div class="row justify-content-around">
             <form method="post" class="col-md-6 bg-light p-3 my-3" id="edit${users.id}">
