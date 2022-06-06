@@ -21,11 +21,11 @@
       </div>
       <div class="col-9 mt-3">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">TRANG CHỦ</a>
+          <a class="navbar-brand" href="/home">TRANG CHỦ</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
+          <div class="collapse navbar-collapse text-center" id="navbarScroll">
             <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
               <li class="nav-item active">
                 <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
@@ -40,18 +40,18 @@
                 <a class="nav-link" href="#">Giỏ Hàng</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Thêm Sản Phẩm</a>
+                <a class="nav-link" href="/products?act=create">Thêm Sản Phẩm</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sửa Sản Phẩm</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Xóa Sản Phẩm</a>
-              </li>
+<%--              <li class="nav-item">--%>
+<%--                <a class="nav-link" href="#">Sửa Sản Phẩm</a>--%>
+<%--              </li>--%>
+<%--              <li class="nav-item">--%>
+<%--                <a class="nav-link" href="/products?act=delete">Xóa Sản Phẩm</a>--%>
+<%--              </li>--%>
             </ul>
-            <form class="d-flex">
-              <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" action="/home">
+              <input class="form-control mr-2" type="search" placeholder="Tìm tên sản phẩm" aria-label="Search" name="key">
+              <button class="btn btn-outline-success" type="submit">Tìm</button>
             </form>
           </div>
         </nav>
@@ -101,7 +101,7 @@
     <div class="row">
       <div class="col-12 mt-3">
         <center>
-        <p class="h2">DANH SÁCH CHI TIẾT SẢN PHẨM</p>
+        <p class="h2">SẢN PHẨM ĐANG BÁN</p>
       </center>
       </div>
     </div>
@@ -122,7 +122,9 @@
                   <p class="card-text" >Danh mục: ${pro.categoryzz.name}</p>
 <%--                  <a href="#" class="btn btn-primary"> Số lượng: ${pro.numberOfProduct}</a>--%>
 <%--                  <p class="card-text"> acbd</p>--%>
-                  <a href="#" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
+                  <a href="/products?act=view&id=${pro.id}" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
+                  <a href="/products?act=edit&id=${pro.id}" class="btn btn-primary mt-2">Sửa Sản Phẩm</a>
+                  <a href="/products?act=delete&id=${pro.id}" class="btn btn-primary mt-2">Xóa Sản Phẩm</a>
                 </div>
               </div>
             </div>
@@ -138,7 +140,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
             <c:forEach items='${categories}' var="ca">
-              <h5><a class="dropdown-item" href="#">${ca.name}</a></h5>
+              <h5><a class="dropdown-item" href="/home?categoryid=${ca.id}">${ca.name}</a></h5>
             </c:forEach>
 
           </div>
@@ -147,35 +149,33 @@
     </div>
 
 
-    <div class="row mt-3" style="background: yellow">
-      <div class="col-6 mt-2">
+    <div class="row mt-3" style="background: lightgray">
+      <div class="col-6">
         <nav class="nav flex-column">
-          <a class="nav-link active" href="#">Công ty TNHH NPHT</a>
-        <h4>h4. Bootstrap heading</h4>
-        <h5>h5. Bootstrap heading</h5>
-        <h6>h6. Bootstrap heading</h6>
+          <a class="nav-link active" href="#">Công ty TNHH 4 Thành Viên
+          </a>
         </nav>
       </div>
       <div class="col-6">
         <div class="row">
-        <div class="col-6">
-        <nav class="nav flex-column">
-          <a class="nav-link active" href="#">VỀ CHÚNG TÔI</a>
-          <a class="nav-link" href="#">Tin Tức</a>
-          <a class="nav-link" href="#">Giỏ Hàng</a>
-          <a class="nav-link" href="#">Dịch Vụ</a>
-          <a class="nav-link" href="#">Liên Hệ</a>
-        </nav>
+          <div class="col-6">
+            <nav class="nav flex-column">
+              <a class="nav-link active" href="#">VỀ CHÚNG TÔI</a>
+              <a class="nav-link" href="#">Tin Tức</a>
+              <a class="nav-link" href="#">Giỏ Hàng</a>
+              <a class="nav-link" href="#">Dịch Vụ</a>
+              <a class="nav-link" href="#">Liên Hệ</a>
+            </nav>
+          </div>
+          <div class="col-6">
+            <nav class="nav flex-column">
+              <a class="nav-link active" href="#">SẢN PHẨM</a>
+              <a class="nav-link" href="#">Rau</a>
+              <a class="nav-link" href="#">Hoa Quả</a>
+              <a class="nav-link" href="#">Thực Phẩm Khác</a>
+            </nav>
+          </div>
         </div>
-        <div class="col-6">
-          <nav class="nav flex-column">
-            <a class="nav-link active" href="#">SẢN PHẨM</a>
-            <a class="nav-link" href="#">Rau</a>
-            <a class="nav-link" href="#">Hoa Quả</a>
-            <a class="nav-link" href="#">Thực Phẩm Khác</a>
-          </nav>
-        </div>
-      </div>
       </div>
     </div>
 

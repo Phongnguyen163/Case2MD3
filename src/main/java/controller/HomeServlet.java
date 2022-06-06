@@ -19,10 +19,18 @@ public class HomeServlet extends HttpServlet {
     ProductService productService = new ProductServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String categoryid = request.getParameter("categoryid");
+        String key = request.getParameter("key");
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         List<Category> categories = categoryService.findAll();
         request.setAttribute("categories", categories);
         List<Product> products = productService.findAll();
+        if (categoryid != null) {
+            products = productService.findAllByClass(Integer.parseInt(categoryid));
+        }
+        if (key != null) {
+            products = productService.findAllByNameContains(key);
+        }
         request.setAttribute("products", products);
         requestDispatcher.forward(request, response);
     }
