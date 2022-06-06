@@ -74,7 +74,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void showListUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/list.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/listUser.jsp");
         List<User> users = userService.findAll();
         List<Role> roles = roleService.findAllUser(users);
         request.setAttribute("users", users);
