@@ -90,24 +90,23 @@
     <div id="main">
         <div class="inner">
             <form method="">
-                <a href="/books"><h1 style="display: inline">Tất cả sách</h1></a>
+                <a href="/products"><h1 style="display: inline">Tất cả sách</h1></a>
             </form>
             <table>
                 <tr>
-                    <th>Tên sách</th>
+                    <th>Tên</th>
                     <th>Giá</th>
                     <th>Số lượng</th>
                     <th>Thành tiền</th>
                     <th></th>
                 </tr>
-                <c:forEach var="i" begin="0" end="${tempOrder.size() - 1}">
+                <c:forEach var="item" items="${tempOrder}">
                     <tr>
-                        <td>${tempOrder.get(i).book.name}</td>
-                        <td>${tempOrder.get(i).book.price}</td>
-                        <td>${tempOrder.get(i).quantity}</td>
-                        <td>${intoMoney.get(i)}</td>
+                        <td>${item.product.name}</td>
+                        <td>${item.product.price}</td>
+                        <td>${item.quantity}</td>
                         <td>
-                            <a href="/carts?action=delete&id=${tempOrder.get(i).id}" class="btn btn-danger">Xoá</a>
+                            <a href="/carts?action=delete&id=${item.id}" class="btn btn-danger">Xoá</a>
                                 <%--                            <form action="/carts" method="get" id="delete${tempOrder.get(i).id}" style="display: inline">--%>
                                 <%--                                <input type="hidden" name="action" value="delete">--%>
                                 <%--                                <input type="hidden" name="id" value="${tempOrder.get(i).id}">--%>

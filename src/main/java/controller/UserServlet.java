@@ -16,7 +16,6 @@ import java.util.List;
 public class UserServlet extends HttpServlet {
     UserServiceImpl userService = new UserServiceImpl();
     RoleServiceImpl roleService = new RoleServiceImpl();
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");

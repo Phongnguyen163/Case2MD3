@@ -140,6 +140,27 @@
                             <p>SĐT Liện hệ: Hỏi Anh Nam :)</p>
                             <p class="card-text" >Giá: ${product.price} VNĐ </p>
                             <p class="card-text" >Danh mục: ${product.categoryzz.name}</p>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <c:if test="${name!= null}">
+                                        <form method="post" action="/carts">
+                                            <input type="hidden" name="id" value="${product.id}">
+                                            <label class="control-label">Số lượng đặt hàng</label>
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="form-group">
+                                                        <input type="number" value="1" name="numberOfOrder" id="name"
+                                                               max="${product.numberOfProduct}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <input type="hidden" name="action" value="add">
+                                                    <input type="submit" class="primary" value="Thêm vào giỏ hàng">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </c:if>
+                                </div>
 <%--                                400.000 đ--%>
 
 <%--                                Lưu tin--%>

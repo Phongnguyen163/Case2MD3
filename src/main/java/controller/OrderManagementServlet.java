@@ -47,15 +47,15 @@ public class OrderManagementServlet extends HttpServlet {
 
     private void deleteOrder(HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) throws IOException {
         String id = request.getParameter("id");
-        int StaffId = (int) httpSession.getAttribute("userId");
-        orderService.delete(id, StaffId);
+        int ownerShopId = (int) httpSession.getAttribute("userId");
+        orderService.delete(id, ownerShopId);
         response.sendRedirect("/order-management?action=unconfirm");
     }
 
     private void confirmOrder(HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) throws IOException {
         String id = request.getParameter("id");
-        int StaffId = (int) httpSession.getAttribute("userId");
-        orderService.confirm(id, StaffId);
+        int ownerShopId = (int) httpSession.getAttribute("userId");
+        orderService.confirm(id, ownerShopId);
         productService.editQuantity(orderDetailService.findByOrderId(id));
         response.sendRedirect("/order-management?action=unconfirm");
     }
