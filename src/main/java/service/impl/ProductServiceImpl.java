@@ -4,7 +4,6 @@ import model.Category;
 import model.OrderDetail;
 import model.Product;
 import service.CategoryService;
-import service.CategoryServiceImpl;
 import service.ProductService;
 
 import java.sql.*;

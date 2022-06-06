@@ -2,7 +2,7 @@ package controller;
 
 import model.Category;
 import service.CategoryService;
-import service.CategoryServiceImpl;
+import service.impl.CategoryServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
