@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void showLoginForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("login/login.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("login/listUser.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -90,7 +90,7 @@ public class LoginServlet extends HttpServlet {
         if (session.getAttribute("name")!=null){
             session.invalidate();
         }
-        response.sendRedirect("/");
+        response.sendRedirect("/home");
     }
 
     private void login(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException, ServletException {
@@ -99,7 +99,7 @@ public class LoginServlet extends HttpServlet {
         User user = userService.findByUserNamePassword(username , password);
         if(user == null){
             request.setAttribute("mess", "Nhập sai tài khoản hoặc mật khẩu");
-            request.getRequestDispatcher("login/login.jsp").forward(request,response);
+            request.getRequestDispatcher("login/listUser.jsp").forward(request,response);
         } else {
             session.setAttribute("phone",user.getPhoneNumber());
             session.setAttribute("name" , user.getName());
@@ -107,7 +107,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("userId", user.getId());
             currentId = user.getId();
             name = user.getName();
-            response.sendRedirect("/");
+            response.sendRedirect("/home");
         }
     }
 }

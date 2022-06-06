@@ -5,6 +5,7 @@
   Time: 1:39 CH
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,35 +17,35 @@
 <div class="container-fluid" style="background: bisque">
     <div class="row">
         <div class="col-3 mt-3">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeQ-WosSNblZCtZT1pW2ML5pg35hi1E2J0og30cScDfaEWahpzc3_roKh75AdXqrGy-5o&usqp=CAU" alt="">
+            <img src="../image/abc.jpg" alt="">
         </div>
         <div class="col-9 mt-3">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">TRANG CHỦ</a>
+                <a class="navbar-brand" href="/home">TRANG CHỦ</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarScroll">
+                <div class="collapse navbar-collapse text-center" id="navbarScroll">
                     <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Giới Thiệu <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">login</a>
+                            <a class="nav-link" href="/logins">Đăng nhập</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">logout</a>
+                            <a class="nav-link" href="/registers">Đăng ký</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Thêm sản phẩm</a>
+                            <a class="nav-link" href="/products?act=create">Thêm Sản Phẩm</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form class="d-flex" action="/home">
+                        <input class="form-control mr-2" type="search" placeholder="Tìm tên sản phẩm" aria-label="Search" name="key">
+                        <button class="btn btn-outline-success" type="submit">Tìm</button>
                     </form>
                 </div>
             </nav>
@@ -58,8 +59,6 @@
             </center>
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10 mt-3">
@@ -73,7 +72,10 @@
                         <img src="https://anhnendep.net/wp-content/uploads/2015/07/hinh-nen-trai-cay-dep-3.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS43VIh9npU5bPQSgFQcilG6CPkJMqJWVfUtYsr943hFBKpOj5-t9rmdSRx2A9LSSYQ3VM&usqp=CAU" class="d-block w-100" alt="...">
+                        <img src="../image/Cam1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../image/Nho1.jpg" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
@@ -87,72 +89,62 @@
             </div>
         </div>
 
-
         <div class="col-1"></div>
     </div>
-
 
     <div class="row">
         <div class="col-12 mt-3">
             <center>
-                <p class="h2">DANH SÁCH SẢN PHẨM</p>
+                <p class="h2">SẢN PHẨM ĐANG BÁN</p>
             </center>
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-1"></div>
         <div class="col-8">
             <div class="row">
-                <div class="col-12 mt-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="https://bloganh.net/wp-content/uploads/2021/03/chup-anh-dep-anh-sang-min.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">tên sản phẩm</h5>
-                            <p class="card-text">Bán mật ong rừng và tinh bột nghệ nhà làm
-                                400.000 đ
 
-                                Lưu tin
+                <c:forEach items='${products}' var="pro">
+                    <div class="col-4 mt-3">
+                        <div class="card" style="width: 14rem;">
+                            <img src="${pro.img}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text" >${pro.name}</p>
+                                <p class="card-text" >Giá: ${pro.price} VNĐ </p>
+                                <p class="card-text" >Danh mục: ${pro.categoryzz.name}</p>
+                                <a href="/products?act=view&id=${pro.id}" class="btn btn-primary">Chi Tiết Sản Phẩm</a>
+                                <a href="/products?act=edit&id=${pro.id}" class="btn btn-primary mt-2">Sửa Sản Phẩm</a>
+                                <a href="/products?act=delete&id=${pro.id}" class="btn btn-primary mt-2">Xóa Sản Phẩm</a>
 
-                                like
-                                Nhà trồng nghệ nhiều nên làm tinh bột nghệ nguyên chất tại nhà, đảm bảo chất lượng, nguyên chất 100%, nói không với hóa chất.
-                                - Mật ong rừng lấy từ trong bản gần cửa khẩu, đảm bảo nguyên rin.
-                                - Anh chị có nhu cầu mua sử dụng alo e ship tận nhà nhé. Kiểm tra chất lượng trước khi lấy, nếu không phải nguyên chất em xin hoàn tiền lại.
-
-                                Nhấn để hiện số: 097126 ***
-                                Khu Vực
-                                location
-                                Phường Hòa Khánh Nam, Quận Liên Chiểu, Đà Nẵng</p>
-                            <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </c:forEach>
+
             </div>
         </div>
         <div class="col-3">
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                    DANH SÁCH SẢN PHẨM
+                    DANH MỤC SẢN PHẨM
                 </a>
-
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Rau</a>
-                    <a class="dropdown-item" href="#">Hoa quả</a>
-                    <a class="dropdown-item" href="#">sản phẩm khác</a>
+
+                    <c:forEach items='${categories}' var="ca">
+                        <h5><a class="dropdown-item" href="/home?categoryid=${ca.id}">${ca.name}</a></h5>
+                    </c:forEach>
+
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="row" style="background: black">
+    <div class="row mt-3" style="background: lightgray">
         <div class="col-6">
             <nav class="nav flex-column">
-                <a class="nav-link active" href="#">Công ty TNHH NPHT</a>
-                <h4>h4. Bootstrap heading</h4>
-                <h5>h5. Bootstrap heading</h5>
-                <h6>h6. Bootstrap heading</h6>
+                <a class="nav-link active" href="#">Công ty TNHH 4 Thành Viên
+                </a>
             </nav>
         </div>
         <div class="col-6">

@@ -134,6 +134,7 @@
                             <p>SĐT Liện hệ: Hỏi Anh Nam :)</p>
                             <p class="card-text" >Giá: ${product.price} VNĐ </p>
                             <p class="card-text" >Danh mục: ${product.categoryzz.name}</p>
+                            <a href="" class="btn btn-primary">Thêm Sản Phẩm</a>
 <%--                                400.000 đ--%>
 
 <%--                                Lưu tin--%>

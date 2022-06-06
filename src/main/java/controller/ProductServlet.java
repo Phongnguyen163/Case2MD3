@@ -3,7 +3,7 @@ package controller;
 import model.Category;
 import model.Product;
 import service.CategoryService;
-import service.CategoryServiceImpl;
+import service.impl.CategoryServiceImpl;
 import service.ProductService;
 import service.impl.ProductServiceImpl;
 
@@ -32,21 +32,21 @@ public class ProductServlet extends HttpServlet {
                 try {
                     showView(request, response);
                 } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
                 break;
             case "delete":
                 try {
                     showDelete(request, response);
                 } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
                 break;
             case "edit":
                 try {
                     showEdit(request, response);
                 } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
                 break;
             default:
